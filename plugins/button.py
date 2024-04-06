@@ -8,17 +8,9 @@ from pyrogram.types import InlineKeyboardButton
 
 def start_button(client):
     if not FORCE_SUB:
-        buttons = [
-            [
-                InlineKeyboardButton(text="ʜᴇʟᴘ & ᴄᴏᴍᴍᴀɴᴅs", callback_data="help"),
-                InlineKeyboardButton(text="ᴛᴜᴛᴜᴘ", callback_data="close"),
-            ],
-        ]
-        return buttons
-
-    dynamic_buttons = []
+        buttons = dynamic_buttons = []
     num_force_sub = len(FORCE_SUB)
-
+    
     current_row = []
     for key in FORCE_SUB.keys():
         current_row.append(InlineKeyboardButton(text=f"{BUTTONS_JOIN_TEXT} {key}", url=getattr(client, f'invitelink{key}')))
